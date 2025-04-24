@@ -4,6 +4,7 @@ local config = {}
 -- Display
 config.color_scheme = 'Everblush'
 config.font = wezterm.font 'Hack Nerd Font'
+config.font_size = 16
 config.window_padding = {
     left = 15,
     right = 15,
