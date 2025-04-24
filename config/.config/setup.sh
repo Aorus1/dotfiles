@@ -1,5 +1,18 @@
-#!/bin/bash
-npm install -g bash-language-server
-npm install -g dockerfile-language-server-nodejs
-npm install -g yaml-language-server
-brew install lua-language-server
+#!/usr/bin/env bash
+set -e
+
+# Install npm-based language servers
+for pkg in bash-language-server dockerfile-language-server-nodejs yaml-language-server; do
+    if ! npm list -g --depth=0 | grep -q "$pkg"; then
+        npm install -g "$pkg"
+    else
+        echo "$pkg already installed"
+    fi
+done
+
+# Install lua-language-server if missing
+if ! command -v lua-language-server &> /dev/null; then
+    brew install lua-language-server
+else
+    echo "lua-language-server already installed"
+fi
