@@ -22,3 +22,8 @@ vim.keymap.set("n", "<leader>tt", function()
   vim.cmd.colorscheme("catppuccin")
   vim.notify("Catppuccin: " .. next_flavor, vim.log.levels.INFO)
 end, { desc = "Toggle light/dark theme" })
+
+-- Open cheatsheet
+vim.keymap.set("n", "<leader>ch", function()
+  _G._cheatsheet.open()
+end, { desc = "Open cheatsheet" })
