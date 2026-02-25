@@ -4,6 +4,7 @@ export VISUAL="nvim"
 export MANPAGER="nvim +Man!"
 
 # History
+mkdir -p "$XDG_DATA_HOME/zsh"
 export HISTFILE="$XDG_DATA_HOME/zsh/.zsh_history"
 export HISTSIZE=10000
 export SAVEHIST=10000
@@ -40,7 +41,7 @@ alias vizshrc="nvim $ZDOTDIR/.zshrc"
 alias rlzshrc="source $ZDOTDIR/.zshrc"
 
 # Aliases — git
-alias gs="git status"
+alias gst="git status"
 alias ga="git add"
 alias gb="git branch"
 alias gc="git commit"
@@ -55,7 +56,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
 # zoxide (smarter cd)
-eval "$(zoxide init zsh)"
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init zsh)"
+fi
 
 # fnm (node version manager)
 FNM_PATH="$HOME/.local/share/fnm"
