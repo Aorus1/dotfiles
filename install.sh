@@ -38,7 +38,11 @@ backup_and_link "$DOTFILES/config/wezterm"     "$CONFIG/wezterm"
 echo ""
 read -p "==> Install Homebrew packages from Brewfile? [y/N] " answer || true
 if [[ "$answer" =~ ^[Yy]$ ]]; then
-  brew bundle --file "$DOTFILES/Brewfile"
+  if command -v brew &>/dev/null; then
+    brew bundle --file "$DOTFILES/Brewfile"
+  else
+    echo "  [skip] brew not found — install Homebrew first, then run: brew bundle --file $DOTFILES/Brewfile"
+  fi
 fi
 
 echo ""
