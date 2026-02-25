@@ -25,5 +25,7 @@ end, { desc = "Toggle light/dark theme" })
 
 -- Open cheatsheet
 vim.keymap.set("n", "<leader>ch", function()
-  _G._cheatsheet.open()
+  if _G._cheatsheet then
+    _G._cheatsheet.open()
+  end
 end, { desc = "Open cheatsheet" })

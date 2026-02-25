@@ -20,7 +20,10 @@ Leader key: `<Space>`
 | `L` | Next buffer |
 | `<leader>bd` | Delete buffer |
 | `<leader>bb` | Switch buffer |
-| `<C-h/j/k/l>` | Move between windows |
+| `<C-h>` | Focus left window |
+| `<C-j>` | Focus lower window |
+| `<C-k>` | Focus upper window |
+| `<C-l>` | Focus right window |
 | `<leader>\|` | Split vertical |
 | `<leader>-` | Split horizontal |
 

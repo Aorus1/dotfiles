@@ -28,6 +28,8 @@ local keymaps = {
 
   { category = "Git", key = "<leader>gg",  desc = "Lazygit" },
   { category = "Git", key = "<leader>gb",  desc = "Git blame line" },
+  { category = "Git", key = "<leader>ghs", desc = "Stage hunk" },
+  { category = "Git", key = "<leader>ghr", desc = "Reset hunk" },
   { category = "Git", key = "]h",          desc = "Next hunk" },
   { category = "Git", key = "[h",          desc = "Prev hunk" },
 
@@ -60,7 +62,7 @@ function M.open()
       table.insert(lines, "  " .. string.rep("─", 36))
       current_cat = km.category
     end
-    local key_padded = km.key .. string.rep(" ", col_width - #km.key)
+    local key_padded = km.key .. string.rep(" ", math.max(0, col_width - #km.key))
     table.insert(lines, "  " .. key_padded .. "  " .. km.desc)
   end
 
@@ -71,6 +73,7 @@ function M.open()
   -- Create buffer
   local buf = vim.api.nvim_create_buf(false, true)
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+  vim.api.nvim_set_option_value("bufhidden", "wipe", { buf = buf })
   vim.api.nvim_set_option_value("modifiable", false, { buf = buf })
   vim.api.nvim_set_option_value("filetype", "cheatsheet", { buf = buf })
 
