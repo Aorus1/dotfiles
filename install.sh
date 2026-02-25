@@ -36,7 +36,7 @@ backup_and_link "$DOTFILES/config/tmux"        "$CONFIG/tmux"
 backup_and_link "$DOTFILES/config/wezterm"     "$CONFIG/wezterm"
 
 echo ""
-read -p "==> Install Homebrew packages from Brewfile? [y/N] " answer
+read -p "==> Install Homebrew packages from Brewfile? [y/N] " answer || true
 if [[ "$answer" =~ ^[Yy]$ ]]; then
   brew bundle --file "$DOTFILES/Brewfile"
 fi
