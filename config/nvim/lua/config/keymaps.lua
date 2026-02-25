@@ -1,0 +1,3 @@
+-- Keymaps are set automatically by LazyVim.
+-- Add your custom keymaps here.
+-- (populated in later tasks)
