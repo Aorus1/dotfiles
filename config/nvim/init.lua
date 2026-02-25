@@ -4,6 +4,7 @@ vim.opt.relativenumber = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
 vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.opt.ignorecase = true
@@ -31,7 +32,7 @@ map("n", "<C-k>", "<C-w>k", "Move to upper window")
 map("n", "<C-l>", "<C-w>l", "Move to right window")
 
 -- Clear search highlight
-map("n", "<Esc>", "<cmd>nohlsearch<CR>", "Clear search highlight")
+map("n", "<leader>h", "<cmd>nohlsearch<CR>", "Clear search highlight")
 
 -- Stay in indent mode
 map("v", "<", "<gv", "Indent left")
