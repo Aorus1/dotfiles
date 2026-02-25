@@ -19,7 +19,6 @@ return {
         which_key = true,
         mason = true,
         mini = { enabled = true },
-        lsp_saga = false,
         native_lsp = {
           enabled = true,
           underlines = {
@@ -38,7 +37,8 @@ return {
       if f then
         local flavor = f:read("*l")
         f:close()
-        if flavor and flavor ~= "" then
+        local valid = { mocha = true, latte = true, frappe = true, macchiato = true }
+        if flavor and valid[flavor] then
           opts.flavour = flavor
         end
       end
