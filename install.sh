@@ -8,20 +8,17 @@ backup_and_link() {
   local src="$1"
   local dst="$2"
 
-  # If dst is already the correct symlink, skip
   if [ -L "$dst" ] && [ "$(readlink "$dst")" = "$src" ]; then
     echo "  [skip] $dst already linked"
     return
   fi
 
-  # Backup existing real file or dir
   if [ -e "$dst" ] && [ ! -L "$dst" ]; then
     local bak="$dst.bak.$(date +%Y%m%d%H%M%S)"
     echo "  [backup] $dst → $bak"
     mv "$dst" "$bak"
   fi
 
-  # Remove stale symlink
   if [ -L "$dst" ]; then
     rm "$dst"
   fi
